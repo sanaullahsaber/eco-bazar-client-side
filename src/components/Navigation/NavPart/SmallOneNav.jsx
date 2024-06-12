@@ -14,10 +14,10 @@ const SmallOneNav = () => {
           </p>
         </div>
 
-        <div className="flex items-center space-x-2 text-gray-600 text-[#666666] font-normal text-base sm:text-lg md:text-xl lg:text-base xl:text-base">
-          <NavLink to="/">Sign In</NavLink>
+        <div className="flex items-center space-x-2 text-[#666666] font-normal text-base sm:text-lg md:text-xl lg:text-base xl:text-base">
+          <NavLink to={"/"}>Sign In</NavLink>
           <span>/</span>
-          <NavLink to="/">Sign Up</NavLink>
+          <NavLink to={"/"}>Sign Up</NavLink>
         </div>
       </div>
     </div>
