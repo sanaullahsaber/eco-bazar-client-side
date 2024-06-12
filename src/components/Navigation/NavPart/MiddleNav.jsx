@@ -2,6 +2,7 @@ import NavLogo from "../../../assets/Vector.png";
 import { FaSearch } from "react-icons/fa";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { SlHandbag } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const MiddleNav = () => {
   return (
@@ -14,9 +15,11 @@ const MiddleNav = () => {
             <div className="flex items-center gap-1">
               <img src={NavLogo} alt="" className="h-8 sm:h-auto" />
               <div>
-                <p className="text-base sm:text-base md:text-xl lg:text-3xl font-medium">
-                  Ecobazar
-                </p>
+                <Link to={"/"}>
+                  <p className="text-base sm:text-base md:text-xl lg:text-3xl font-medium">
+                    Ecobazar
+                  </p>
+                </Link>
               </div>
             </div>
             {/* Icons and Cart */}
@@ -58,9 +61,11 @@ const MiddleNav = () => {
             <div className="flex items-center gap-1">
               <img src={NavLogo} alt="" className="h-8 sm:h-auto" />
               <div>
-                <p className="text-base sm:text-base md:text-xl lg:text-3xl font-medium">
-                  Ecobazar
-                </p>
+                <Link to={"/"}>
+                  <p className="text-base sm:text-base md:text-xl lg:text-3xl font-medium">
+                    Ecobazar
+                  </p>
+                </Link>
               </div>
             </div>
 
