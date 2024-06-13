@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import FooterImg from "../../assets/Vector.png";
 
 import { Footer } from "flowbite-react";
-import AmexImg from "../../assets/Amex.png";
-import BkashImg from "../../assets/bkash.png"
-import MastercardImg from "../../assets/mastercard.png"
-import VisaImg from "../../assets/Visa.png"
+import AmexImg from "../../assets/Footer/Amex.png";
+import BkashImg from "../../assets/Footer/bkash.png";
+import MastercardImg from "../../assets/Footer/mastercard.png";
+import VisaImg from "../../assets/Footer/Visa.png";
 
 const FooterBT = () => {
   return (
