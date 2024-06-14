@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const NavLinks = () => {
   return (
-    <div className="mt-0 lg:my-5">
+    <div className="mt-0 lg:mt-5">
       <Navbar fluid rounded className="bg-transparent">
         <Navbar.Collapse>
           <Navbar.Link>
