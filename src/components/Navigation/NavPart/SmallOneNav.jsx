@@ -15,9 +15,27 @@ const SmallOneNav = () => {
         </div>
 
         <div className="flex items-center space-x-2 text-[#666666] font-normal text-base sm:text-lg md:text-xl lg:text-base xl:text-base">
-          <NavLink to={"/"}>Sign In</NavLink>
+          <NavLink
+            to={"/sign-in"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#00B307] text-base font-medium"
+                : "text-[#666666] text-base font-medium"
+            }
+          >
+            Sign In
+          </NavLink>
           <span>/</span>
-          <NavLink to={"/"}>Sign Up</NavLink>
+          <NavLink
+            to={"/sign-up"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#00B307] text-base font-medium"
+                : "text-[#666666] text-base font-medium"
+            }
+          >
+            Sign Up
+          </NavLink>
         </div>
       </div>
     </div>
