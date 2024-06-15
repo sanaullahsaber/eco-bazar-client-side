@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -9,6 +10,7 @@ const SignIn = () => {
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
+
 
   return (
     <>
@@ -32,6 +34,7 @@ const SignIn = () => {
                 id="email"
                 className="w-full px-3 py-2 text-gray-700 border rounded-lg 
               focus:outline-none focus:ring focus:ring-blue-200"
+                placeholder="Email"
                 required
               />
             </div>
@@ -49,6 +52,7 @@ const SignIn = () => {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="Password"
                   required
                 />
                 {showPassword ? (
@@ -91,19 +95,21 @@ const SignIn = () => {
               <input
                 type="submit"
                 value="Sign In"
-                className="w-full px-4 py-2 font-bold text-white bg-[#00B307] rounded-lg hover:bg-gradient-to-r from-lime-300 to-green-900 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                className="w-full px-4 py-2 font-bold text-white bg-[#00B307] rounded-full hover:bg-gradient-to-r from-lime-300 to-green-900 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
-            {/*  */}
-            <p className="text-[#666666] text-center mt-5">
-              Don’t have account?
-              <Link to={"/sign-up"}>
-                <span className="text-[#1A1A1A]">
-                  <strong> Register</strong>
-                </span>
-              </Link>
-            </p>
           </form>
+          <div className="mt-4">
+            <GoogleLogin></GoogleLogin>
+          </div>
+          <p className="text-[#666666] text-center mt-5">
+            Don’t have account?
+            <Link to={"/sign-up"}>
+              <span className="text-[#1A1A1A]">
+                <strong> Register</strong>
+              </span>
+            </Link>
+          </p>
         </div>
       </div>
     </>
