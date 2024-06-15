@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import ErrorImage from "../../assets/ErrorPage/Illustration.png";
 import Navigation from "../../components/Navigation/Navigation";
 import FooterBT from "../../components/FooterBT/FooterBT";
+import SubscribeOurNewsletter from "../../components/SubscribeOurNewsletter/SubscribeOurNewsletter";
 const ErrorPage = () => {
   return (
     <>
@@ -22,6 +23,7 @@ const ErrorPage = () => {
           </div>
         </div>
       </div>
+      <SubscribeOurNewsletter></SubscribeOurNewsletter>
       <FooterBT></FooterBT>
     </>
   );
