@@ -1,16 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import {  useState } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
 
+  const handleSingIn = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(email, password);
+
+    await signIn(email, password)
+      .then((data) => {
+        console.log(data);
+        toast.success("Google Login Successfully");
+        navigate(from, { replace: true });
+      });
+  };
 
   return (
     <>
@@ -20,7 +41,7 @@ const SignIn = () => {
           <h2 className="mb-6 text-3xl font-bold text-center text-gray-800">
             Sign In
           </h2>
-          <form>
+          <form onSubmit={handleSingIn}>
             {/* email */}
             <div className="mb-4">
               <label
@@ -32,6 +53,7 @@ const SignIn = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 className="w-full px-3 py-2 text-gray-700 border rounded-lg 
               focus:outline-none focus:ring focus:ring-blue-200"
                 placeholder="Email"
@@ -51,6 +73,7 @@ const SignIn = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
+                  name="password"
                   className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
                   placeholder="Password"
                   required
@@ -75,6 +98,7 @@ const SignIn = () => {
                 <input
                   type="checkbox"
                   id="remember"
+                  required
                   className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                 />
                 <label

@@ -1,8 +1,15 @@
 import { Navbar } from "flowbite-react";
-import { FiPhoneCall } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import { Avatar, Dropdown } from "flowbite-react";
 
 const NavLinks = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = async () => {
+    await logOut();
+  };
+
   return (
     <div className="mt-0 lg:mt-5">
       <Navbar fluid rounded className="bg-transparent">
@@ -84,10 +91,31 @@ const NavLinks = () => {
         <Navbar.Toggle />
 
         <Navbar.Brand className="flex flex-row items-center justify-start gap-1">
-          <FiPhoneCall className="text-base font-medium text-white" size={20} />
-          <span className="text-base font-medium text-white">
-            (219) 555-0114
-          </span>
+          {user ? (
+            <Dropdown
+              label={
+                <Avatar alt="User settings" img={user?.photoURL} rounded />
+              }
+              arrowIcon={false}
+              inline
+            >
+              <Dropdown.Header>
+                <span className="block text-sm">{user?.displayName}</span>
+                <span className="block truncate text-sm font-medium">
+                  {user?.email}
+                </span>
+              </Dropdown.Header>
+              <Dropdown.Item>Dashboard</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={handleLogOut}>Sign out</Dropdown.Item>
+            </Dropdown>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              <Link to={"/sign-in"}>
+                <Avatar rounded />
+              </Link>
+            </div>
+          )}
         </Navbar.Brand>
       </Navbar>
     </div>
